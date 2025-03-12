@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <link rel="icon" type="image/png" href="heart.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero-section">
+    <h1>Will You Be My Valentine? ❤️</h1>
+    <img src="yay.jpeg" alt="Cute Couple" class="main-page-image">
+    <p>I hope this makes u blushhhh heheheehehe🥺</p>
+    <div class="buttons">
+      <button onclick="accept()">Yes, I'd love to! 💕</button>
+      <button onclick="reject()">Hell Noooo 😈</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content-section">
+      <h2>Why I Chose You!</h2>
+      <p>Because Whyyyy notttt likeee u are sooo perfecttttt like no one can find someone like you , like am really sooo luckyyy to find someone who is sooo caring , loving and who makes me really happy , who supports me , who makes me blushhh every singleeee dayyy likeee ahhhhhhhhhhhhhhhhhhhhh</p>
+      <img src="cute.gif" alt="Happy Couple Image" class="scroll-image">
+    </section>
+
+    <section class="scroll-section">
+      <h2>Why You should choose me heheheehehe🌸</h2>
+      <p>
+        u should love meeeee becauseeeee am so dumb , am chi for u , am an house husband who knows every single thing to do , who will support u , dont ever overthink about u deserver someone better there is no better or anythinggg u are the one and last one that i will love in my entire lifeeee 
+      </p>
+      <p>
+    
+      </p>
+      <img src="cute1.gif" alt="Cute Love Image" class="scroll-image">
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-text">Happy Valentine's Day! ❤️</p>
+  </footer>
+
+  <script>
+    let rejectionStage = 0;
+    function accept() {
+    document.body.innerHTML = `
+        <div class="accept-section">
+          <h1 class="love-message">Yayyyyyy am blushinggggg omggggg ❤️</h1>
+          <img src="us2.gif" alt="Celebration GIF" class="celebration-image" />
+          <div id="typewriter"></div>
+        </div>
+      `;
+      
+    }
+
+    function reject() {
+      const container = document.querySelector('.hero-section');
+      if (rejectionStage === 0) {
+        container.innerHTML = `
+          <h1>Pleaseeee accept it 🥺</h1>
+          <img src="sad1.gif" alt="Pleading Heart Image" class="pleading-image">
+          <button onclick="tryAgain()">Try Again</button>
+        `;
+        rejectionStage++;
+      } else {
+        container.innerHTML = `
+          <h1>🥺 Seriously, Please?</h1>
+          <img src="huge_pleading_face.png" class="pleading-face-image">
+          <button onclick="finalPlead()">I Am Crying 😭</button>
+        `;
+      }
+    }
+
+    function tryAgain() {
+      location.reload();
+    }
+
+    function finalPlead() {
+      alert("I love you so much, even if you're unsure! ❤️");
+      document.body.innerHTML = `
+        <h1 class="love-message">I Love You So Much Anyway! ❤️</h1>
+        <p class="fade-in">No matter your answer, you will always be special to me!</p>
+      `;
+    }
+
+    function triggerConfetti() {
+      const confettiContainer = document.createElement("div");
+      confettiContainer.classList.add("confetti-container");
+      document.body.appendChild(confettiContainer);
+
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.backgroundColor = getRandomColor();
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDelay = `${Math.random() * 3}s`;
+        confettiContainer.appendChild(confetti);
+      }
+
+      setTimeout(() => confettiContainer.remove(), 5000);
+    }
+
+    function getRandomColor() {
+      const colors = ["#FFC0CB", "#FF69B4", "#FFD700", "#32CD32", "#1E90FF", "#FFA07A"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    // Typewriter effect to display text letter by letter.
+    function typeWriter(text, i, speed) {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(function() { typeWriter(text, i, speed); }, speed);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
